@@ -2,7 +2,7 @@
   "name": "pptxGenerator",
   "version": "1.0.0",
   "repository": "https://github.com/Suz8a/pptxGenerator.git",
-  "author": "Suzclem Adriana Ochoa Casillas",
+  "author": "Suzclem Adriana Ochoa Casillas <suadocca@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "csv": "^5.3.2",
