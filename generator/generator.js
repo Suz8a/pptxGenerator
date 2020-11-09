@@ -19,11 +19,11 @@ const main = () => {
         return unique.includes(item) ? unique : [...unique, item];
       }, []);
 
-    carreras.forEach((carrera) => {
+    carreras.forEach((carreraActual) => {
+      console.log();
       data
-        .filter(({ carreraAlumno }) => carreraAlumno === carrera)
+        .filter(({ carrera }) => carrera === carreraActual)
         .forEach((item) => {
-          console.log(carrera);
           const slide = pptx.addSlide();
 
           slide
@@ -92,7 +92,9 @@ const main = () => {
               }
             )
             .addImage({
-              path: `../assets/img/${carrera}/${Object.values(item)[0]}.jpeg`,
+              path: `../assets/img/${item["carrera"]}/${
+                Object.values(item)[0]
+              }.jpeg`,
               x: "60%",
               y: 0,
               w: "40%",
@@ -120,10 +122,9 @@ const main = () => {
               }
             );
         });
-    });
-
-    pptx.writeFile(carrera).then(function (fileName) {
-      console.log("Saved! File Name: " + fileName);
+      pptx.writeFile(carreraActual).then(function (fileName) {
+        console.log("Saved! File Name: " + fileName);
+      });
     });
   });
 };
