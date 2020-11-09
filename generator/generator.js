@@ -8,9 +8,6 @@ const main = () => {
   });
 
   csv.parse(fileData, { columns: true }, (err, data) => {
-    const pptx = new PptxGenJS();
-    pptx.layout = "LAYOUT_WIDE";
-
     var carreras = data
       .map(({ carrera }) => {
         return carrera;
@@ -20,7 +17,8 @@ const main = () => {
       }, []);
 
     carreras.forEach((carreraActual) => {
-      console.log();
+      const pptx = new PptxGenJS();
+      pptx.layout = "LAYOUT_WIDE";
       data
         .filter(({ carrera }) => carrera === carreraActual)
         .forEach((item) => {
